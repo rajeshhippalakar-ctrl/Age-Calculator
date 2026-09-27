@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f0e9">
+  <title>Age, precisely.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="/" aria-label="Age, precisely home"><span class="mark">a.</span> / precisely</a>
+    <span class="top-note">A little perspective on time</span>
+  </header>
+
+  <main class="layout">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> YOUR TIME, IN NUMBERS</p>
+      <h1 id="page-title">Age,<br><em>precisely.</em></h1>
+      <p class="intro-copy">A birthday is more than a date. Find the years, months, and days that make up yours.</p>
+      <div class="orbit" aria-hidden="true">
+        <div class="orbit-ring ring-one"></div>
+        <div class="orbit-ring ring-two"></div>
+        <div class="orbit-center"><span>YOUR</span><strong>TIME</strong></div>
+        <span class="orbit-point point-one"></span>
+        <span class="orbit-point point-two"></span>
+        <span class="orbit-point point-three"></span>
+        <span class="orbit-label label-one">01 / YEARS</span>
+        <span class="orbit-label label-two">02 / DAYS</span>
+      </div>
+      <p class="side-caption">A small way to see<br>the big picture.</p>
+    </section>
+
+    <section class="calculator" aria-labelledby="form-title">
+      <div class="panel-heading">
+        <span class="section-index">01</span>
+        <div>
+          <h2 id="form-title">Start with your birthday</h2>
+          <p>We’ll do the calendar math.</p>
+        </div>
+      </div>
+      <form id="age-form">
+        <label for="birth-date">DATE OF BIRTH</label>
+        <div class="date-wrap">
+          <input id="birth-date" name="birth_date" type="date" required>
+          <span class="date-hint" aria-hidden="true">SELECT DATE</span>
+        </div>
+        <button class="calculate-button" type="submit">
+          <span>Calculate my age</span><span class="button-arrow" aria-hidden="true">&#8599;</span>
+        </button>
+        <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="results" id="results" aria-live="polite" hidden>
+        <div class="result-rule"><span>02</span><span>YOUR AGE TODAY</span><span class="rule-line"></span></div>
+        <div class="age-display" aria-label="Your age">
+          <div class="age-unit"><strong id="years">0</strong><span>YEARS</span></div>
+          <span class="age-divider">/</span>
+          <div class="age-unit"><strong id="months">0</strong><span>MONTHS</span></div>
+          <span class="age-divider">/</span>
+          <div class="age-unit"><strong id="days">0</strong><span>DAYS</span></div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat"><span class="stat-label">TOTAL DAYS</span><strong id="total-days">0</strong></div>
+          <div class="stat"><span class="stat-label">TOTAL WEEKS</span><strong id="total-weeks">0</strong></div>
+          <div class="stat"><span class="stat-label">TOTAL MONTHS</span><strong id="total-months">0</strong></div>
+        </div>
+        <div class="birthday-note"><span class="birthday-star" aria-hidden="true">&#10022;</span><p id="birthday-message"></p></div>
+      </div>
+      <div class="panel-foot"><span>PRIVATE BY DESIGN</span><span>YOUR BIRTH DATE STAYS IN THIS SESSION</span></div>
+    </section>
+  </main>
+  <footer><span>MADE FOR MARKING TIME</span><span id="today-date"></span></footer>
+</body>
+</html>
